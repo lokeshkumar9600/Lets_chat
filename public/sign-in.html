@@ -4,15 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sign.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <h1>Sign in</h1>
-    <form method="POST" action="/signin">
+    <div class="container">
+        <div class="overlay" id="overlay">
+          <div class="sign-in" id="sign-in">
+            <h1 style="color:#6C4A4A">SIGN - IN</h1>
+            <!-- <p>To keep connected with us please login with your personal info</p>
+            <button class="switch-button" id="slide-right-button">Sign In</button> -->
+          </div>
+        </div>
+        <div class="form">
+          <div class="sign-up" id="sign-up-info">
+            <form method="POST" action="/signin" id="sign-up-form">
+              <input type="email" placeholder="Email" name="signinEmail" required/>
+              <input type="password" placeholder="Password" name="signinPassword" required/>
+              <button type="submit" class="btdefault">Enter chat room</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    <!-- <form method="POST" action="/signin">
         <input type="email" placeholder="email" name="signinEmail">
         <input type="password" placeholder="password" name="signinPassword">
         <button type="submit">sign in</button>
-    </form>
+    </form> -->
 
 </body>
 </html>

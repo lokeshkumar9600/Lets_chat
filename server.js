@@ -4,11 +4,15 @@ const http = require("http");
 const socketio = require("socket.io");
 const app = express();
 // const PORT = 5000||process.env.PORT;
+
+
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/lets_chat", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+
 const bodyParser = require("body-parser");
 const server = http.createServer(app);
 const io = socketio(server);
@@ -20,6 +24,8 @@ const {
   userLeave,
   getRoomUsers,
 } = require("./utils/users");
+
+
 io.on("connection", (socket) => {
   console.log("new WS connected");
 
@@ -66,6 +72,8 @@ io.on("connection", (socket) => {
   });
 });
 
+
+
 // database schema import
 var users = require("./db/user");
 
@@ -84,6 +92,8 @@ app.get("/signin", (req, res) => {
 app.get("/signup", (req, res) => {
   res.sendFile(__dirname + "/public/sign-up.html");
 });
+
+
 
 app.post("/signup", (req, res) => {
   if (req.body.signupPassword == req.body.signupConfirmPassword) {
@@ -113,10 +123,11 @@ app.post("/signin", (req, res) => {
     } else {
       if (userfound) {
         if (userfound.password === req.body.signinPassword) {
-          app.get("/rooms", (req, res) => {
+
+          app.get(`/rooms`, (req, res) => {
             res.sendFile(__dirname + "/public/rooms.html");
           });
-          res.redirect("/rooms");
+          res.redirect(`/rooms`);
         }
       }
     }

@@ -4,15 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="sign.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Sign-up</title>
 </head>
 <body>
-    <h1>Sign up page</h1>
-    <form method="POST" action="/signup">
+
+    <div class="container">
+        <div class="overlay" id="overlay">
+          <div class="sign-in" id="sign-in">
+            <h1 style="color:#6C4A4A;text-transform: uppercase;">Sign - up</h1>
+            <!-- <p>To keep connected with us please login with your personal info</p>
+            <button class="switch-button" id="slide-right-button">Sign In</button> -->
+          </div>
+        </div>
+        <div class="form">
+          <div class="sign-up" id="sign-up-info">
+            <form method="POST" action="/signup" id="sign-up-form">
+                <input type="email" placeholder="enter email" required name="signupEmail">
+                <input type="password" placeholder="Enter password" required name="signupPassword">
+                <input type="password" placeholder="confirm password" required name="signupConfirmPassword">
+              <button type="submit" class="btdefault">Create new account</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    <!-- <form method="POST" action="/signup">
         <input type="email" placeholder="enter email" required name="signupEmail">
         <input type="password" placeholder="Enter password" required name="signupPassword">
         <input type="password" placeholder="confirm password" required name="signupConfirmPassword">
         <button type="submit" >sign up</button>
-    </form>
+    </form> -->
 </body>
 </html>

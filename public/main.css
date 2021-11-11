@@ -1,3 +1,49 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+}
+
 .bt{
 color: red;
+}
+.main{
+    background-color:#EDEDED;
+    height:100vh;
+    width:100%;
+}
+
+
+.navbar-custom {
+    background-color: #6C4A4A;
+    border-color: #6C4A4A;
+}
+
+.icon{
+    color:white;
+}
+.navbar-brand {
+    color:white;
+   
+}
+a{
+    text-decoration: none;
+}
+img{
+    height:700px;
+    width:800px;
+    object-fit: contain;
+}
+.content{
+    height:90vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn{
+    background-color:#C89595 !important;
+    width:250px;
+}
+.btn-group .btn-group-lg{
+    border-radius: 30px;
 }

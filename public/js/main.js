@@ -7,9 +7,23 @@ const socket = io();
 const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
 });
+// console.log($("#msg"))
 
+var typing=false;
+var timeout=undefined;
 //join chat room
 socket.emit("joinChatRoom", { username, room });
+
+socket.on('display', (data)=>{
+  if(data.typing==true && data.user === username){
+    $('.typing').text(`typing.....`)
+}else if(data.typing==true){
+  $('.typing').text(`${data.user} is typing...`)
+}
+  else
+    $('.typing').text("")
+})
+
 
 //message to server
 socket.on("message", (message) => {
@@ -62,10 +76,28 @@ function outputUsers(users) {
 }
 
 //Prompt the user before leave chat room
-document.getElementById("leave-btn").addEventListener("click", () => {
-  const leaveRoom = confirm("Are you sure you want to leave the chatroom?");
-  if (leaveRoom) {
-    window.location = "../index.html";
-  } else {
+// 
+
+
+$('#msg').keypress((e)=>{
+  console.log('...')
+  if(e.which!=13){
+      typing=true
+      socket.emit('typing', {user:username, typing:true})
+      clearTimeout(timeout)
+      timeout=setTimeout(typingTimeout, 1500)
+  }else{
+      clearTimeout(timeout)
+      typingTimeout()
+      // sendMessage()
   }
-});
+
+  })
+
+function typingTimeout(){
+  typing=false
+  socket.emit('typing', {user:username, typing:false})
+}
+
+
+

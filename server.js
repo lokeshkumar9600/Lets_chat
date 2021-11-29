@@ -29,6 +29,15 @@ const {
 io.on("connection", (socket) => {
   console.log("new WS connected");
 
+  socket.on('typing', (data)=>{
+    console.log(data);
+    if(data.typing==true)
+       io.emit('display', data)
+    else
+       io.emit('display', data)
+  })
+
+
   socket.on("joinChatRoom", ({ username, room }) => {
     // welcome current user
     const user = userJoin(socket.id, username, room);

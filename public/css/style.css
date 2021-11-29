@@ -7,6 +7,9 @@
 	--success-color: #5cb85c;
 	--error-color: #d9534f;
 }
+.typing{
+	font-weight: 600;
+}
 
 * {
 	box-sizing: border-box;
